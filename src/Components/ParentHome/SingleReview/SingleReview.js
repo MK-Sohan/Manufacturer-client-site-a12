@@ -13,7 +13,6 @@ const SingleReview = ({ review }) => {
             </div>
             <div>
               <h4 className="text-xl text-center">{review.name}</h4>
-              {/* <p>{review.location}</p> */}
             </div>
           </div>
           <p className="font-bold">Rating: {review.rating} </p>
