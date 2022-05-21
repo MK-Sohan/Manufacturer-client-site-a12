@@ -6,7 +6,7 @@ import auth from "../../../firebase.init";
 import "./Header.css";
 const Header = () => {
   const [user] = useAuthState(auth);
-
+  console.log(user);
   const logout = () => {
     signOut(auth);
   };
@@ -65,7 +65,7 @@ const Header = () => {
             {menu}
           </ul>
         </div>
-        <Link as={Link} to="/" class="btn btn-ghost normal-case text-xl">
+        <Link as={Link} to="/" class=" text-xl">
           <span className="logo"> SpaceDesk Mechanical</span>
         </Link>
       </div>
@@ -73,7 +73,7 @@ const Header = () => {
         <ul class="menu menu-horizontal p-0">{menu}</ul>
       </div>
       <div class="navbar-end">
-        <h1>profile photo</h1>
+        <h1 className="font-bold text-xl">User:{user.displayName}</h1>
       </div>
     </div>
   );

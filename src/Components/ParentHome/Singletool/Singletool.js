@@ -10,7 +10,7 @@ const Singletool = ({ tool }) => {
     productname,
     _id,
   } = tool;
-  console.log(tool.availablequantity);
+
   return (
     <div class="card w-96 bg-base-100 shadow-xl mb-10">
       <figure>
@@ -29,8 +29,8 @@ const Singletool = ({ tool }) => {
           {minimumorderquantity}
         </p>
         <p>{description}</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Buy Now</button>
+        <div class="card-actions justify-center mt-4">
+          <button class="btn btn-success text-white font-bold">Buy Now</button>
         </div>
       </div>
     </div>
