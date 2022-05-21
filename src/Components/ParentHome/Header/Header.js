@@ -1,7 +1,16 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../../firebase.init";
 import "./Header.css";
 const Header = () => {
+  const [user] = useAuthState(auth);
+
+  const logout = () => {
+    signOut(auth);
+  };
+
   const menu = (
     <>
       <li>
@@ -9,15 +18,22 @@ const Header = () => {
           Home
         </Link>
       </li>
+
       <li>
-        <Link className="font-semibold text-xl" to="/login">
-          Login
+        <Link className="font-semibold text-xl " to="/dashboard">
+          Dashboard
         </Link>
       </li>
       <li>
-        <Link className="font-semibold text-xl" to="/dashboard">
-          Dashboard
-        </Link>
+        {user ? (
+          <button className="btn btn-ghost" onClick={logout}>
+            <p className="font-semibold text-xl text-red-600">Sign Out</p>
+          </button>
+        ) : (
+          <Link className="font-semibold text-xl" to="/login">
+            Login
+          </Link>
+        )}
       </li>
     </>
   );
