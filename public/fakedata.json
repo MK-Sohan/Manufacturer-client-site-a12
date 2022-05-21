@@ -1,65 +1,56 @@
 [
     {
-      "image": "http://placehold.it/32x32",
-      "productname": "",
+      "image": "https://i.ibb.co/GcLDGcp/hammer1-png-500x500.png",
+      "productname": "Hammer",
       "price": "$131.15",
       "minimumorderquantity": 673,
-      "availablequantity": 377,
+      "availablequantity": 5537,
       "suppliername": "Jaclyn Gonzalez",
-      "description": ""
+      "description": "A hammer is a hand tool,fixed to a long handle that is swung to deliver an impact to a small area ."
     },
     {
-      "image": "http://placehold.it/32x32",
-      "productname": "",
+      "image": "https://i.ibb.co/5hr4Kq8/measuring-tape-png.png",
+      "productname":"Measuring-tape",
       "price": "$125.06",
-      "minimumorderquantity": 412,
-      "availablequantity": 475,
+      "minimumorderquantity": 1000,
+      "availablequantity": 4475,
       "suppliername": "Strickland Hess",
-      "description": ""
+      "description": "A measuring tape used for measuring length. It is made up of materials like fiberglass, cloth, plastic, metal ribbon, or strip."
     },
     {
-      "image": "http://placehold.it/32x32",
-      "productname": "",
+      "image": "https://i.ibb.co/gwWnhS5/screwdriver-picture.png",
+      "productname": "Screwdriver",
       "price": "$88.44",
-      "minimumorderquantity": 408,
-      "availablequantity": 585,
+      "minimumorderquantity": 800,
+      "availablequantity": 3385,
       "suppliername": "Hernandez Garner",
-      "description": ""
+      "description": "A screwdriver is an essential tool used to install and remove — as well as tighten or loosen—screws."
     },
     {
-      "image": "http://placehold.it/32x32",
-      "productname": "",
+      "image": "https://i.ibb.co/5jtJLWr/drill-png.png",
+      "productname": "Drill",
       "price": "$189.75",
-      "minimumorderquantity": 475,
-      "availablequantity": 268,
+      "minimumorderquantity": 900,
+      "availablequantity": 4668,
       "suppliername": "Curtis Cross",
-      "description": ""
+      "description": "A drill is a tool used for making round holes or driving fasteners. It is fitted with a bit, either a drill or driverchuck."
     },
     {
-      "image": "http://placehold.it/32x32",
-      "productname": "",
+      "image": "https://i.ibb.co/LdtpzgV/Step-ladders.png",
+      "productname": "Step-ladders",
       "price": "$159.08",
-      "minimumorderquantity": 315,
-      "availablequantity": 546,
+      "minimumorderquantity": 1100,
+      "availablequantity": 3846,
       "suppliername": "Brittney Bartlett",
-      "description": ""
+      "description": "Step ladders bring you a few feet off of the ground, allowing you to perform home improvement tasks."
     },
     {
-      "image": "http://placehold.it/32x32",
-      "productname": "",
+      "image": "https://i.ibb.co/kmKTy60/chainsaw-png.png",
+      "productname": "Chainsaw",
       "price": "$184.59",
       "minimumorderquantity": 642,
-      "availablequantity": 508,
+      "availablequantity": 2208,
       "suppliername": "Monique Spence",
-      "description": ""
-    },
-    {
-      "image": "http://placehold.it/32x32",
-      "productname": "",
-      "price": "$131.98",
-      "minimumorderquantity": 576,
-      "availablequantity": 360,
-      "suppliername": "Ward Bennett",
-      "description": ""
+      "description": "A chainsaw is a portable gasoline or electric saw that cuts with a set of teeth attached to a rotating chain driven along a guide bar."
     }
   ]

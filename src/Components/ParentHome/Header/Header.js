@@ -5,13 +5,19 @@ const Header = () => {
   const menu = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link className="font-semibold text-xl " to="/">
+          Home
+        </Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link className="font-semibold text-xl" to="/login">
+          Login
+        </Link>
       </li>
       <li>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link className="font-semibold text-xl" to="/dashboard">
+          Dashboard
+        </Link>
       </li>
     </>
   );
@@ -38,7 +44,7 @@ const Header = () => {
           </label>
           <ul
             tabindex="0"
-            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            class="menu menu-compact  dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {menu}
           </ul>
