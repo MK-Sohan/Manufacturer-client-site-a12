@@ -92,8 +92,8 @@ const Login = () => {
                     message: "Password is Required",
                   },
                   minLength: {
-                    value: 6,
-                    message: "Must be 6 characters or longer",
+                    value: 7,
+                    message: "Password Must be 7 characters or longer",
                   },
                 })}
               />
@@ -120,9 +120,9 @@ const Login = () => {
           </form>
           <p>
             <small>
-              New to Doctors Portal{" "}
-              <Link className="text-primary" to="/signup">
-                Create New Account
+              New to SpaceDesk Mechanical?{" "}
+              <Link className="text-green-700 font-bold" to="/signup">
+                Create a New Account
               </Link>
             </small>
           </p>
