@@ -53,14 +53,17 @@ const AddaReview = () => {
 
           <div class="form-control">
             <label class="label">
-              <span class="label-text">Enter Your rating here</span>
+              <p class="label-text">Enter Your rating here</p> <br />
+            </label>
+            <label class="label">
+              <p class="label-text">Rating must be 0-5</p>
             </label>
             <label class="input-group">
               <input
                 required
                 onChange={handlerating}
                 type="number"
-                // value={value}
+                value={rating}
                 min="0"
                 max="5"
                 placeholder=""
@@ -75,7 +78,10 @@ const AddaReview = () => {
           </div>
 
           <div className="card-actions justify-center ">
-            <button className="btn btn-outline btn-success w-52 mt-6 mb-10  text-black">
+            <button
+              disabled={rating > 5 || rating < 0}
+              className="btn  btn-success w-52 mt-6 mb-10  text-black"
+            >
               Add Review
             </button>
           </div>

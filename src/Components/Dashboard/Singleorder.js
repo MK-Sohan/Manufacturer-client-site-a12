@@ -1,29 +1,56 @@
 import React from "react";
+import Loading from "../Share/Loading";
 
 const Singleorder = ({ order }) => {
+  const handleDeleorder = (id) => {
+    fetch(`http://localhost:5000/myorder/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
-    <div class="card w-96 bg-base-100 shadow-xl mb-10">
-      <figure>
-        <img className="h-56 py-3" src={order.image} alt="Shoes" />
-      </figure>
-      <div class="card-body">
-        <h2 class="card-title">{order.productname}</h2>
-        <p className="font-bold ">{order.price} per unit</p>
-        <p>
-          <span className="font-bold"> Available:</span>
-          <span> {order.availablequantity} piece</span>
-          <span className="ml-2">{order.productname}</span>
-        </p>
-        <p>
-          <span className="font-bold">Minimum Order Quantity: </span>{" "}
-          {order.minimumorderquantity} piece
-        </p>
-        <p>{order.detail}</p>
-        <div class="card-actions justify-center mt-4">
-          <button class="btn btn-success text-white font-bold">Buy Now</button>
+    <tr>
+      <td>
+        <div class="flex items-center space-x-3">
+          <div class="avatar">
+            <div class="mask mask-squircle w-12 h-12">
+              <img src={order.image} alt="tool image" />
+            </div>
+          </div>
+          <div>
+            <div class="font-bold"></div>
+          </div>
         </div>
-      </div>
-    </div>
+      </td>
+      <td>
+        {order.productname}
+        <br />
+      </td>
+      <td>
+        {order.price}
+        <br />
+      </td>
+      <td>{order.availablequantity} Piece </td>
+      <td>
+        {order.orderquantity} Piece
+        <br />
+      </td>
+
+      <th>
+        <button class="btn btn-primary btn-xs  bg-slate-800 text-whitebtn-xs">
+          Pay
+        </button>
+      </th>
+      <th>
+        <button
+          onClick={() => handleDeleorder(order._id)}
+          class="  btn btn-error text-slate-600 btn-xs"
+        >
+          Delete
+        </button>
+      </th>
+    </tr>
   );
 };
 
