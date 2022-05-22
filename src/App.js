@@ -13,17 +13,28 @@ import "react-toastify/dist/ReactToastify.css";
 import Myorder from "./Components/Dashboard/Myorder";
 import AddaReview from "./Components/Dashboard/AddaReview";
 import MyProfile from "./Components/Dashboard/MyProfile";
+import Allusers from "./Components/Dashboard/Allusers";
+
 function App() {
   return (
     <div className="bg-slate-100">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard></Dashboard>
+            </RequireAuth>
+          }
+        >
           {/* nasted route start */}
           <Route index element={<Myorder></Myorder>}></Route>
           <Route path="addreview" element={<AddaReview></AddaReview>}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+          <Route path="users" element={<Allusers></Allusers>}></Route>
+
           {/* nasted route end */}
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>

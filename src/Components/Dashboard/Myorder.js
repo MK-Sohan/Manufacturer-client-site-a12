@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Share/Loading";
 import Singleorder from "./Singleorder";
@@ -8,10 +9,21 @@ import Singleorder from "./Singleorder";
 const Myorder = () => {
   const [myOrders, setMyorder] = useState([]);
   const [user] = useAuthState(auth);
-
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:5000/myorder/${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/myorder/${user?.email}`, {
+      method: "GET",
+      headers: {
+        authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          navigate("/");
+        }
+
+        return res.json();
+      })
       .then((data) => setMyorder(data));
   }, [myOrders]);
 
