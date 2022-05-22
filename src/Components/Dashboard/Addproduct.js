@@ -1,12 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Addproduct = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
@@ -36,13 +38,21 @@ const Addproduct = () => {
             body: JSON.stringify(newproduct),
             headers: {
               "Content-Type": "application/json",
+              authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
             },
           })
             .then((res) => {
               return res.json();
               console.log(res);
             })
-            .then((newdata) => console.log(newdata));
+            .then((newdata) => {
+              if (newdata.insertedId) {
+                toast("Item Added");
+                reset();
+              }
+
+              console.log(newdata);
+            });
         }
         // console.log("image bb", data);
       });
