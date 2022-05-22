@@ -10,13 +10,22 @@ import Home from "./Components/ParentHome/Home/Home";
 import Footer from "./Components/Share/Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Myorder from "./Components/Dashboard/Myorder";
+import AddaReview from "./Components/Dashboard/AddaReview";
+import MyProfile from "./Components/Dashboard/MyProfile";
 function App() {
   return (
     <div className="bg-slate-100">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+        <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+          {/* nasted route start */}
+          <Route index element={<Myorder></Myorder>}></Route>
+          <Route path="addreview" element={<AddaReview></AddaReview>}></Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+          {/* nasted route end */}
+        </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route

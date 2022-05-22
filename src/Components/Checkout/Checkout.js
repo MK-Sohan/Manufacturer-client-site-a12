@@ -45,29 +45,33 @@ const Checkout = () => {
       .then((response) => response.json())
       .then((data) => {
         toast("Order confirm");
+
         console.log(data);
       });
   };
   const handleAddress = (e) => {
     const address = e.target.value;
     setAddress(address);
-    console.log(address);
+
+    // console.log(address);
   };
   const handlePhone = (e) => {
     const phone = e.target.value;
     setPhonenumber(phone);
-    console.log(phone);
+
+    // console.log(phone);
   };
   const handleDetail = (e) => {
     const detail = e.target.value;
     setDetail(detail);
-    console.log(detail);
+
+    // console.log(detail);
   };
   const handleOrderQuantity = (e) => {
     const quantity = e.target.value;
     setOrderQuantity(quantity);
 
-    console.log(quantity);
+    // console.log(quantity);
   };
   return (
     <div className="checkout-container">
@@ -103,9 +107,9 @@ const Checkout = () => {
                   placeholder={checkout.minimumorderquantity}
                   class="input input-bordered"
                 />
+                <span className="bg-transparent font-bold"> piece</span>
               </label>
             </div>{" "}
-            piece
           </p>
           <p>{checkout.description}</p>
           <p className="font-bold mt-4">Give your Information below</p>
