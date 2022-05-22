@@ -4,8 +4,17 @@ import Loading from "../Share/Loading";
 import SingleUser from "./SingleUser";
 
 const Allusers = () => {
-  const { data: users, isLoading } = useQuery("users", () =>
-    fetch("http://localhost:5000/user").then((res) => res.json())
+  const {
+    data: users,
+    isLoading,
+    refetch,
+  } = useQuery("users", () =>
+    fetch("http://localhost:5000/user", {
+      method: "GET",
+      headers: {
+        authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
@@ -22,8 +31,8 @@ const Allusers = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <SingleUser user={user}></SingleUser>
+          {users?.map((user) => (
+            <SingleUser refetch={refetch} user={user}></SingleUser>
           ))}
         </tbody>
       </table>

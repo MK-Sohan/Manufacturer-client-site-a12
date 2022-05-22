@@ -1,8 +1,28 @@
 import React from "react";
+import { toast } from "react-toastify";
 
-const SingleUser = (user) => {
-  console.log(user);
-
+const SingleUser = ({ user, refetch }) => {
+  const { email, role } = user;
+  const handleMakeadmin = () => {
+    fetch(`http://localhost:5000/user/admin/${email}`, {
+      method: "PUT",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 403) {
+          toast.error("Sorry !! Faild to make an Admin");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          refetch();
+          toast.success(`Successfully made an admin`);
+        }
+      });
+  };
   return (
     <tr>
       <td>
@@ -13,14 +33,19 @@ const SingleUser = (user) => {
         </div>
       </td>
       <td>
-        {user?.user.email}
+        {email}
         <br />
       </td>
 
       <th>
-        <button class="btn btn-primary btn-xs  bg-slate-800 text-whitebtn-xs">
-          Make Admin
-        </button>
+        {role !== "admin" && (
+          <button
+            onClick={handleMakeadmin}
+            class="btn btn-primary btn-xs  bg-slate-800 text-whitebtn-xs"
+          >
+            Make Admin
+          </button>
+        )}
       </th>
       <th>
         <button class="  btn btn-error text-slate-600 btn-xs">
