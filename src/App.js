@@ -15,6 +15,7 @@ import AddaReview from "./Components/Dashboard/AddaReview";
 import MyProfile from "./Components/Dashboard/MyProfile";
 import Allusers from "./Components/Dashboard/Allusers";
 import RequireAdmin from "./Components/Authentication/RequireAuth/RequireAdmin";
+import Addproduct from "./Components/Dashboard/Addproduct";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route index element={<Myorder></Myorder>}></Route>
           <Route path="addreview" element={<AddaReview></AddaReview>}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+          <Route path="addproduct" element={<Addproduct></Addproduct>}></Route>
           <Route
             path="users"
             element={

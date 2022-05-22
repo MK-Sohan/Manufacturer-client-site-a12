@@ -81,7 +81,7 @@ const Header = () => {
         <ul class="menu menu-horizontal p-0">{menu}</ul>
       </div>
       <div class="navbar-end">
-        <h1 className="font-bold text-xl">User:{user?.displayName}</h1>
+        <h1 className="font-bold text-xl mr-14">User: {user?.displayName}</h1>
       </div>
     </div>
   );
