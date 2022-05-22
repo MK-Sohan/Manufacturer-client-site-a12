@@ -20,9 +20,17 @@ const Header = () => {
       </li>
 
       <li>
-        <Link className="font-semibold text-xl " to="/dashboard">
-          Dashboard
-        </Link>
+        {user && (
+          <>
+            <Link className="font-semibold text-xl " to="/dashboard">
+              Dashboard
+            </Link>
+
+            {/* <Link className="font-semibold text-xl " to="/dashboard">
+              My item
+            </Link> */}
+          </>
+        )}
       </li>
       <li>
         {user ? (

@@ -41,7 +41,7 @@ const Login = () => {
     signInWithEmailAndPassword(data.email, data.password);
   };
   return (
-    <div className="login-container">
+    <div className="login-container ">
       <div className="flex h-screen justify-center items-center">
         <div className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body">
@@ -93,8 +93,8 @@ const Login = () => {
                       message: "Password is Required",
                     },
                     minLength: {
-                      value: 7,
-                      message: "Password Must be 7 characters or longer",
+                      value: 6,
+                      message: "Password Must be 6 characters or longer",
                     },
                   })}
                 />

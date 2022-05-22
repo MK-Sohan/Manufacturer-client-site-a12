@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Singletool = ({ tool }) => {
+  const { productid } = useParams();
+
   const {
     availablequantity,
     description,
@@ -10,6 +13,10 @@ const Singletool = ({ tool }) => {
     productname,
     _id,
   } = tool;
+  const navigate = useNavigate();
+  const handleCheckout = (id) => {
+    navigate(`/chaekout/${id}`);
+  };
 
   return (
     <div class="card w-96 bg-base-100 shadow-xl mb-10">
@@ -21,16 +28,21 @@ const Singletool = ({ tool }) => {
         <p className="font-bold ">{price} per unit</p>
         <p>
           <span className="font-bold"> Available:</span>
-          <span> {availablequantity}</span>
+          <span> {availablequantity} piece</span>
           <span className="ml-2">{productname}</span>
         </p>
         <p>
           <span className="font-bold">Minimum Order Quantity: </span>{" "}
-          {minimumorderquantity}
+          {minimumorderquantity} piece
         </p>
         <p>{description}</p>
         <div class="card-actions justify-center mt-4">
-          <button class="btn btn-success text-white font-bold">Buy Now</button>
+          <button
+            onClick={() => handleCheckout(tool._id)}
+            class="btn btn-success text-white font-bold"
+          >
+            Buy Now
+          </button>
         </div>
       </div>
     </div>
