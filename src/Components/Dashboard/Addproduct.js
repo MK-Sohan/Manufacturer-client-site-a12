@@ -10,9 +10,45 @@ const Addproduct = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageBBapikey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const image = result.data.url;
+          const newproduct = {
+            productname: data.name,
+            price: data.price,
+            availablequantity: data.aquantity,
+            minimumorderquantity: data.minquantity,
+            description: data.description,
+            image: image,
+          };
+          console.log(newproduct);
+          fetch("http://localhost:5000/tool", {
+            method: "POST",
+            body: JSON.stringify(newproduct),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((res) => {
+              return res.json();
+              console.log(res);
+            })
+            .then((newdata) => console.log(newdata));
+        }
+        // console.log("image bb", data);
+      });
+    // console.log(data);
   };
-
+  const imageBBapikey = "3aff551a88435da5c293e7e3050d4973";
   return (
     <div className="flex h-screen w-screen justify-center items-center">
       <div className="card lg:w-4/12   bg-base-100 shadow-xl">
@@ -116,7 +152,7 @@ const Addproduct = () => {
               <label className="label">
                 <span className="label-text">Description</span>
               </label>
-              <input
+              <textarea
                 type="text"
                 placeholder="Description"
                 className="input input-bordered w-full mx-auto max-w-xs"

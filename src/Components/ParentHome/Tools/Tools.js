@@ -10,7 +10,7 @@ const Tools = () => {
         Our Products
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center max-w-7xl mx-auto px-12">
-        {tools.map((tool) => (
+        {tools?.map((tool) => (
           <Singletool key={tool._id} tool={tool}></Singletool>
         ))}
       </div>
