@@ -12,6 +12,7 @@ const Checkout = () => {
   const [phonenumber, setPhonenumber] = useState(0);
   const [detail, setDetail] = useState("");
   const [user] = useAuthState(auth);
+
   useEffect(() => {
     const url = `http://localhost:5000/tool/${productid}`;
     fetch(url)
@@ -65,6 +66,7 @@ const Checkout = () => {
   const handleOrderQuantity = (e) => {
     const quantity = e.target.value;
     setOrderQuantity(quantity);
+
     console.log(quantity);
   };
   return (
@@ -95,6 +97,7 @@ const Checkout = () => {
                 <input
                   onChange={handleOrderQuantity}
                   type="number"
+                  value={orderQuantity}
                   min={checkout.minimumorderquantity}
                   max={checkout.availablequantity}
                   placeholder={checkout.minimumorderquantity}
@@ -127,6 +130,10 @@ const Checkout = () => {
           ></textarea>
           <div class="card-actions justify-center mt-4">
             <button
+              disabled={
+                orderQuantity < checkout.minimumorderquantity ||
+                orderQuantity > checkout.availablequantity
+              }
               onClick={() => handlePlaceOrder(checkout)}
               class="btn btn-success text-white font-bold"
             >
