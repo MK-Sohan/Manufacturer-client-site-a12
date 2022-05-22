@@ -8,7 +8,10 @@ import {
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import background from "../../ParentHome/Banner/banner/banner-1.jpg";
+import { useUpdateProfile } from "react-firebase-hooks/auth";
+
 import "./Signup.css";
+import useToken from "../../Hookes/useToken";
 const Signup = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const {
@@ -18,29 +21,34 @@ const Signup = () => {
   } = useForm();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-  console.log(user, gUser);
+  const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
+
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    alert("Updated profile");
+
+    console.log("we are updated");
+  };
+  const [token] = useToken(user || gUser);
   const navigate = useNavigate();
-  if (user || gUser) {
+  if (token) {
     navigate("/");
   }
   let signInError;
 
-  if (loading || gLoading) {
+  if (loading || gLoading || updating) {
     return <Loading></Loading>;
   }
 
-  if (error || gError) {
+  if (error || gError || updateerror) {
     signInError = (
       <p className="text-red-500">
         <small>{error?.message || gError?.message}</small>
       </p>
     );
   }
-  const onSubmit = async (data) => {
-    await createUserWithEmailAndPassword(data.email, data.password);
-    // await updateProfile({ displayName: data.name });
-    console.log("update done");
-  };
+
   return (
     <div className="signup-container">
       <div className="flex h-screen justify-center items-center">
