@@ -18,6 +18,7 @@ import RequireAdmin from "./Components/Authentication/RequireAuth/RequireAdmin";
 import Addproduct from "./Components/Dashboard/Addproduct";
 import Payment from "./Components/Dashboard/Payment";
 import Allproducts from "./Components/Allproducts/Allproducts";
+import EditMyprofile from "./Components/Dashboard/EditMyprofile";
 
 function App() {
   return (
@@ -37,7 +38,15 @@ function App() {
           <Route index element={<Myorder></Myorder>}></Route>
           <Route path="addreview" element={<AddaReview></AddaReview>}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+          <Route
+            path="editmyprofile"
+            element={<EditMyprofile></EditMyprofile>}
+          ></Route>
           <Route path="addproduct" element={<Addproduct></Addproduct>}></Route>
+          <Route
+            path="allproduct"
+            element={<Allproducts></Allproducts>}
+          ></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route
             path="users"
@@ -60,14 +69,14 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route
+        {/* <Route
           path="/allproduct"
           element={
             <RequireAuth>
               <Allproducts></Allproducts>
             </RequireAuth>
           }
-        ></Route>
+        ></Route> */}
       </Routes>
       <Footer></Footer>
       <ToastContainer />
