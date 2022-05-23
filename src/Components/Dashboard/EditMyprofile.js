@@ -1,10 +1,12 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const EditMyprofile = () => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -30,11 +32,15 @@ const EditMyprofile = () => {
     }).then((res) =>
       res.json().then((data) => {
         console.log(data);
-        reset();
-        toast("Your Profile is Updated");
+        if (data) {
+          reset();
+          toast("Your Profile is Updated");
+          navigate("/dashboard/myprofile");
+        }
       })
     );
   };
+
   return (
     <div className="flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
