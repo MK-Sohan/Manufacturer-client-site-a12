@@ -4,7 +4,6 @@ import { useQuery } from "react-query";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import useAdmin from "../Hookes/useAdmin";
-import useAllusers from "../Hookes/useAllusers";
 import useTootls from "../Hookes/useTootls";
 
 const Allproducts = () => {
@@ -12,8 +11,7 @@ const Allproducts = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   console.log(admin);
-  //   const { users } = useAllusers();
-  //   console.log(users);
+
   const navigate = useNavigate();
   const handleCheckout = (id) => {
     navigate(`/chaekout/${id}`);
