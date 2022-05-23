@@ -15,7 +15,7 @@ const Payment = () => {
   const [neweprice, setUpdatedprice] = useState(0);
   const { id } = useParams();
   const [user] = useAuthState(auth);
-  const url = `http://localhost:5000/paymentorder/${id}`;
+  const url = `https://localhost:5000/paymentorder/${id}`;
   const {
     data: order,
     isLoading,
@@ -39,12 +39,12 @@ const Payment = () => {
         <div class="card-body">
           <p className="text-success">Hello</p>
           <h2 class="card-title">
-            Pay for : {order?.productname} of {order?.orderquantity} piece
+            Pay for : {order.productname} of {order.orderquantity} piece
           </h2>
           <p>
             We will see you on <span className="text-orange-700"></span>
           </p>
-          <p>Please pay $ {order?.price}</p>
+          <p>Please pay $ {order.price}</p>
         </div>
       </div>
       <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">

@@ -2,30 +2,30 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 
 const CheckoutForm = ({ order }) => {
+  const [price, email, name] = order;
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCarderror] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [success, setSuccess] = useState("");
 
-  const { price, email, name } = order;
-  //   console.log(order);
-  useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify(price),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.clientSecret) {
-          setClientSecret(data.clientSecret);
-        }
-      });
-  }, [price]);
+  console.log(price);
+  //   useEffect(() => {
+  //     fetch("https://localhost:5000/create-payment-intent", {
+  //       method: "POST",
+  //       headers: {
+  //         "content-type": "application/json",
+  //         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //       },
+  //       body: JSON.stringify(),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (data?.clientSecret) {
+  //           setClientSecret(data.clientSecret);
+  //         }
+  //       });
+  //   }, [price]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -53,23 +53,23 @@ const CheckoutForm = ({ order }) => {
     }
     // console.log(paymentMethod);
 
-    const { paymentIntent, error: intenterror } =
-      await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: card,
-          billing_details: {
-            name: name,
-            email: email,
-          },
-        },
-      });
-    if (intenterror) {
-      setCarderror(error.message);
-    } else {
-      setCarderror("");
-      console.log(paymentIntent);
-      setSuccess("Your Payment successfull");
-    }
+    // const { paymentIntent, error: intenterror } =
+    //   await stripe.confirmCardPayment(clientSecret, {
+    //     payment_method: {
+    //       card: card,
+    //       billing_details: {
+    //         name: name,
+    //         email: email,
+    //       },
+    //     },
+    //   });
+    // if (intenterror) {
+    //   setCarderror(error.message);
+    // } else {
+    //   setCarderror("");
+    //   console.log(paymentIntent);
+    //   setSuccess("Your Payment successfull");
+    // }
   };
   return (
     <>

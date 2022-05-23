@@ -1,13 +1,19 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 import useAdmin from "../Hookes/useAdmin";
+import useAllusers from "../Hookes/useAllusers";
 import useTootls from "../Hookes/useTootls";
 
 const Allproducts = () => {
   const [tools, setTools] = useTootls();
-  const [admin] = useAdmin();
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   console.log(admin);
+  //   const { users } = useAllusers();
+  //   console.log(users);
   const navigate = useNavigate();
   const handleCheckout = (id) => {
     navigate(`/chaekout/${id}`);
@@ -19,7 +25,11 @@ const Allproducts = () => {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        const remaining = tools.filter((tool) => tool._id !== id);
+        setTools(remaining);
+      });
   };
   return (
     <div className="">
@@ -53,13 +63,17 @@ const Allproducts = () => {
                 >
                   Buy Now
                 </button>
-
-                <button
-                  onClick={() => HandleDeleteproduct(tool._id)}
-                  class="btn btn-error text-white font-bold"
-                >
-                  Delete
-                </button>
+                {admin === true && (
+                  <>
+                    <button
+                      onClick={() => HandleDeleteproduct(tool._id)}
+                      class="btn btn-error text-white font-bold"
+                    >
+                      Delete
+                    </button>
+                    {/* <Link to="/dashboard">My Orders</Link> */}
+                  </>
+                )}
               </div>
             </div>
           </div>
