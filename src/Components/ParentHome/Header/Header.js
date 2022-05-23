@@ -22,12 +22,11 @@ const Header = () => {
       <li>
         {user && (
           <>
-            <Link className="font-semibold text-xl " to="/dashboard">
-              Dashboard
-            </Link>
-
             <Link className="font-semibold text-xl " to="/allproduct">
               All Products
+            </Link>
+            <Link className="font-semibold text-xl " to="/dashboard">
+              Dashboard
             </Link>
           </>
         )}

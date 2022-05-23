@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
+import Allproducts from "../Allproducts/Allproducts";
 import Loading from "../Share/Loading";
 import SingleUser from "./SingleUser";
 

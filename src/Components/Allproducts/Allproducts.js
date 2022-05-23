@@ -1,12 +1,25 @@
 import React from "react";
+import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
+import useAdmin from "../Hookes/useAdmin";
 import useTootls from "../Hookes/useTootls";
 
 const Allproducts = () => {
   const [tools, setTools] = useTootls();
+  const [admin] = useAdmin();
+  console.log(admin);
   const navigate = useNavigate();
   const handleCheckout = (id) => {
     navigate(`/chaekout/${id}`);
+  };
+
+  const HandleDeleteproduct = (id) => {
+    const url = `http://localhost:5000/tool/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
   return (
     <div className="">
@@ -39,6 +52,13 @@ const Allproducts = () => {
                   class="btn btn-success text-white font-bold"
                 >
                   Buy Now
+                </button>
+
+                <button
+                  onClick={() => HandleDeleteproduct(tool._id)}
+                  class="btn btn-error text-white font-bold"
+                >
+                  Delete
                 </button>
               </div>
             </div>
