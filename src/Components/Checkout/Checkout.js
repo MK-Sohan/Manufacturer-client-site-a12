@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import "./Checkout.css";
+
 const Checkout = () => {
   const { productid } = useParams();
   const [checkout, setCheckout] = useState([]);
@@ -32,7 +33,8 @@ const Checkout = () => {
       address: address,
       phone: phonenumber,
       detail: detail,
-      email: user.email,
+      email: user?.email,
+      name: user?.displayName,
     };
 
     fetch("http://localhost:5000/order", {
@@ -99,6 +101,7 @@ const Checkout = () => {
               </label>
               <label class="input-group">
                 <input
+                  required
                   onChange={handleOrderQuantity}
                   type="number"
                   value={orderQuantity}
@@ -114,6 +117,7 @@ const Checkout = () => {
           <p>{checkout.description}</p>
           <p className="font-bold mt-4">Give your Information below</p>
           <input
+            required
             onChange={handleAddress}
             type="text"
             name="address"
@@ -121,6 +125,7 @@ const Checkout = () => {
             class="input input-bordered input-info w-full max-w-xs"
           />
           <input
+            required
             type="number"
             onChange={handlePhone}
             name="phone"
@@ -128,6 +133,7 @@ const Checkout = () => {
             class="input input-bordered input-info w-full max-w-xs"
           />
           <textarea
+            required
             onChange={handleDetail}
             class="textarea  textarea-info w-80"
             placeholder="Bio"

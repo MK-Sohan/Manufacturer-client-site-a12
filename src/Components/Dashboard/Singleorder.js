@@ -1,14 +1,13 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
+import useMyorder from "../Hookes/useMyorder";
 import Loading from "../Share/Loading";
 
-const Singleorder = ({ order }) => {
-  const handleDeleorder = (id) => {
-    fetch(`http://localhost:5000/myorder/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
+const Singleorder = ({ order, isloading, setIsloading, setDeletingorder }) => {
+  // console.log(order);
+  // const { paymentid } = useParams();
+  const [myOrders, setMyorder] = useMyorder();
+
   return (
     <tr>
       <td>
@@ -38,17 +37,32 @@ const Singleorder = ({ order }) => {
       </td>
 
       <th>
-        <button class="btn btn-primary btn-xs  bg-slate-800 text-whitebtn-xs">
-          Pay
-        </button>
+        {/* !order.paid */}
+        {order.price && !order.paid && (
+          <Link to={`/dashboard/payment/${order._id}`}>
+            {" "}
+            <button class="btn btn-primary btn-xs  bg-slate-800 text-whitebtn-xs">
+              Pay
+            </button>
+          </Link>
+        )}
+        {order.price && order.paid && (
+          <Link to={`/dashboard/payment/${order._id}`}>
+            {" "}
+            <button class="btn btn-primary btn-xs  bg-slate-800 text-whitebtn-xs">
+              Paid
+            </button>
+          </Link>
+        )}
       </th>
       <th>
-        <button
-          onClick={() => handleDeleorder(order._id)}
-          class="  btn btn-error text-slate-600 btn-xs"
+        <label
+          onClick={() => setDeletingorder(order)}
+          for="delete-confirm-modal"
+          class="btn  btn-error text-slate-600 btn-xs"
         >
           Delete
-        </button>
+        </label>
       </th>
     </tr>
   );

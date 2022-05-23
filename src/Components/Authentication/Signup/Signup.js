@@ -12,6 +12,7 @@ import { useUpdateProfile } from "react-firebase-hooks/auth";
 
 import "./Signup.css";
 import useToken from "../../Hookes/useToken";
+import { toast } from "react-toastify";
 const Signup = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const {
@@ -26,7 +27,7 @@ const Signup = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    alert("Updated profile");
+    toast("Profile Updated");
 
     console.log("we are updated");
   };
