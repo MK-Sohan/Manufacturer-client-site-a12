@@ -26,9 +26,9 @@ const Header = () => {
               Dashboard
             </Link>
 
-            {/* <Link className="font-semibold text-xl " to="/dashboard">
-              My item
-            </Link> */}
+            <Link className="font-semibold text-xl " to="/allproduct">
+              All Products
+            </Link>
           </>
         )}
       </li>

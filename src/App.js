@@ -17,6 +17,7 @@ import Allusers from "./Components/Dashboard/Allusers";
 import RequireAdmin from "./Components/Authentication/RequireAuth/RequireAdmin";
 import Addproduct from "./Components/Dashboard/Addproduct";
 import Payment from "./Components/Dashboard/Payment";
+import Allproducts from "./Components/Allproducts/Allproducts";
 
 function App() {
   return (
@@ -56,6 +57,14 @@ function App() {
           element={
             <RequireAuth>
               <Checkout></Checkout>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/allproduct"
+          element={
+            <RequireAuth>
+              <Allproducts></Allproducts>
             </RequireAuth>
           }
         ></Route>
