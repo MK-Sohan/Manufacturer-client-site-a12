@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const EditMyprofile = () => {
@@ -8,6 +9,7 @@ const EditMyprofile = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
   const [user] = useAuthState(auth);
 
@@ -25,7 +27,13 @@ const EditMyprofile = () => {
         authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(profileinfo),
-    }).then((res) => res.json().then((data) => console.log(data)));
+    }).then((res) =>
+      res.json().then((data) => {
+        console.log(data);
+        reset();
+        toast("Your Profile is Updated");
+      })
+    );
   };
   return (
     <div className="flex h-screen justify-center items-center">
@@ -41,8 +49,20 @@ const EditMyprofile = () => {
                 type="text"
                 placeholder="Qralification"
                 className="input input-bordered w-full max-w-xs"
-                {...register("qualification")}
+                {...register("qualification", {
+                  required: {
+                    value: true,
+                    message: "Qualification is Required",
+                  },
+                })}
               />
+              <label className="label">
+                {errors.qualification?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.qualification.message}
+                  </span>
+                )}
+              </label>
             </div>
 
             <div className="form-control w-full max-w-xs">
@@ -53,8 +73,20 @@ const EditMyprofile = () => {
                 type="text"
                 placeholder="City/District"
                 className="input input-bordered w-full max-w-xs"
-                {...register("city")}
+                {...register("city", {
+                  required: {
+                    value: true,
+                    message: "City is Required",
+                  },
+                })}
               />
+              <label className="label">
+                {errors.city?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.city.message}
+                  </span>
+                )}
+              </label>
             </div>
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -64,8 +96,20 @@ const EditMyprofile = () => {
                 type="number"
                 placeholder="Phone"
                 className="input input-bordered w-full max-w-xs"
-                {...register("phone")}
+                {...register("phone", {
+                  required: {
+                    value: true,
+                    message: "Phone is Required",
+                  },
+                })}
               />
+              <label className="label">
+                {errors.phone?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.phone.message}
+                  </span>
+                )}
+              </label>
             </div>
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -75,8 +119,20 @@ const EditMyprofile = () => {
                 type="link"
                 placeholder="social link"
                 className="input input-bordered w-full max-w-xs"
-                {...register("link")}
+                {...register("link", {
+                  required: {
+                    value: true,
+                    message: "link is Required",
+                  },
+                })}
               />
+              <label className="label">
+                {errors.link?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.link.message}
+                  </span>
+                )}
+              </label>
             </div>
 
             <input

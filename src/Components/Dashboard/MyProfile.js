@@ -7,7 +7,13 @@ const MyProfile = () => {
   const [user] = useAuthState(auth);
   const [profile, setProfile] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/profile/${user.email}`)
+    const url = `http://localhost:5000/updatedprofile/${user.email}`;
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setProfile(data));
   }, []);
@@ -24,13 +30,15 @@ const MyProfile = () => {
           <img src={image} alt="Shoes" class="rounded-sm h-28" />
         </figure>
         <div class="card-body  ">
-          <h2 class="card-title">NAME: {user.displayName}</h2>
-          <p className="font-bold">EMAIL: {user.email}</p>
+          <h2 class="card-title">NAME: {user?.displayName}</h2>
+          <p className="font-bold">EMAIL: {user?.email}</p>
+
           <p className="font-bold">City: {profile.city}</p>
-          <p className="font-bold">Phone no: {profile.phone}</p>
           <p className="font-bold">
             Educational Qualification: {profile.qualification}
           </p>
+          <p className="font-bold">Phone no: {profile.phone}</p>
+          <p className="font-bold">Social Link: {profile.link}</p>
         </div>
       </div>
     </div>
