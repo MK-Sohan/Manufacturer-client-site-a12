@@ -18,6 +18,11 @@ const Header = () => {
           Home
         </Link>
       </li>
+      <li>
+        <Link className="font-semibold text-xl " to="/blog">
+          Blog
+        </Link>
+      </li>
 
       <li>
         {user && (

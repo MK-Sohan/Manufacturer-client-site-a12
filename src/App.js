@@ -20,6 +20,8 @@ import Payment from "./Components/Dashboard/Payment";
 import Allproducts from "./Components/Allproducts/Allproducts";
 import EditMyprofile from "./Components/Dashboard/EditMyprofile";
 import FourOfour from "./Components/Share/404/FourOfour";
+import Blog from "./Components/Blogs/Blog";
+import Manageorders from "./Components/Dashboard/Manageorders";
 
 function App() {
   return (
@@ -48,12 +50,20 @@ function App() {
             path="allproduct"
             element={<Allproducts></Allproducts>}
           ></Route>
-          <Route path="payment/:id" element={<Payment></Payment>}></Route>
+          <Route path="payment/:payid" element={<Payment></Payment>}></Route>
           <Route
             path="users"
             element={
               <RequireAdmin>
                 <Allusers></Allusers>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageorder"
+            element={
+              <RequireAdmin>
+                <Manageorders></Manageorders>
               </RequireAdmin>
             }
           ></Route>
@@ -70,15 +80,15 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route path="*" element={<FourOfour></FourOfour>}></Route>
-        {/* <Route
-          path="/allproduct"
+        <Route
+          path="/blog"
           element={
             <RequireAuth>
-              <Allproducts></Allproducts>
+              <Blog></Blog>
             </RequireAuth>
           }
-        ></Route> */}
+        ></Route>
+        <Route path="*" element={<FourOfour></FourOfour>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />

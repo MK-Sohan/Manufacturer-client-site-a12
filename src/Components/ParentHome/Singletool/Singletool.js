@@ -1,8 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, useParams } from "react-router-dom";
+import auth from "../../../firebase.init";
+import useAdmin from "../../Hookes/useAdmin";
 
 const Singletool = ({ tool }) => {
   const { productid } = useParams();
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
 
   const {
     availablequantity,
@@ -38,6 +43,7 @@ const Singletool = ({ tool }) => {
         <p>{description}</p>
         <div class="card-actions justify-center mt-4">
           <button
+            disabled={admin === true}
             onClick={() => handleCheckout(tool._id)}
             class="btn btn-success text-white font-bold"
           >

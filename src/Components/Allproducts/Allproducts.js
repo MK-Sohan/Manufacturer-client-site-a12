@@ -29,6 +29,37 @@ const Allproducts = () => {
         setTools(remaining);
       });
   };
+
+  // stoke update start==============
+
+  // const stockUpdate = (event) => {
+  //   event.preventDefault();
+  //   const quantity = event.target.stock.value;
+  //   if (!quantity) {
+  //     alert("input field can't be empty");
+  //   } else {
+  //     const newQuantity = quantity
+  //     const newQuantityObj = { newQuantity };
+  //     const url = `http://localhost:5000/inventory/${}`;
+  //     fetch(url, {
+  //       method: "PUT",
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //       body: JSON.stringify(newQuantityObj),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log("success", data);
+
+  //         //    toast('item restock successfully')
+  //       });
+  //     event.target.reset();
+  //   }
+  // };
+
+  // stoke update start==============
+
   return (
     <div className="">
       <h1 className="text-center text-4xl font-bold text-cyan-500 mb-8">
@@ -56,10 +87,10 @@ const Allproducts = () => {
               <p>{tool.description}</p>
               <div class="card-actions justify-center mt-4">
                 <button
-                  onClick={() => handleCheckout(tool._id)}
+                  disabled={admin === true}
                   class="btn btn-success text-white font-bold"
                 >
-                  Buy Now
+                  Purchase
                 </button>
                 {admin === true && (
                   <>
