@@ -19,6 +19,7 @@ import Addproduct from "./Components/Dashboard/Addproduct";
 import Payment from "./Components/Dashboard/Payment";
 import Allproducts from "./Components/Allproducts/Allproducts";
 import EditMyprofile from "./Components/Dashboard/EditMyprofile";
+import FourOfour from "./Components/Share/404/FourOfour";
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route path="*" element={<FourOfour></FourOfour>}></Route>
         {/* <Route
           path="/allproduct"
           element={
