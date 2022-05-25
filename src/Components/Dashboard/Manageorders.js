@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Manageorders = () => {
   const [allorders, setAllorders] = useState([]);
@@ -13,6 +14,22 @@ const Manageorders = () => {
       .then((data) => setAllorders(data));
   }, []);
   console.log(allorders);
+
+  const handleDeleteorder = (id) => {
+    const proceed = window.confirm("are you shure?");
+    if (proceed) {
+      fetch(`http://localhost:5000/admindelete/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const remaining = allorders.filter((sorder) => sorder._id !== id);
+          setAllorders(remaining);
+          console.log(data);
+        });
+    }
+  };
+
   return (
     // <div class="overflow-x-auto">
     <table class="table w-full">
@@ -45,7 +62,31 @@ const Manageorders = () => {
             <td>{allorder.availablequantity}</td>
             <td>{allorder.orderquantity}</td>
             <td>
-              <button className="btn btn-success btn-xs">Pay</button>
+              {allorder.price && !allorder.paid && (
+                <>
+                  <button className="btn btn-xs btn-success">unpaid</button>
+
+                  <button
+                    onClick={() => handleDeleteorder(allorder._id)}
+                    className=" ml-56 btn btn-error btn-xs"
+                  >
+                    Delet
+                  </button>
+                </>
+              )}
+              {allorder.price && allorder.paid && (
+                <div>
+                  <p>
+                    <span className="text-success">Paid</span>
+                  </p>
+                  <p>
+                    Transaction id:{" "}
+                    <span className="text-success">
+                      {allorder.transactionId}
+                    </span>
+                  </p>
+                </div>
+              )}
             </td>
           </tr>
         ))}
