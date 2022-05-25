@@ -2,7 +2,7 @@
     {
       "image": "https://i.ibb.co/GcLDGcp/hammer1-png-500x500.png",
       "productname": "Hammer",
-      "price": "$131.15",
+      "price": "131.15",
       "minimumorderquantity": 673,
       "availablequantity": 5537,
       "suppliername": "Jaclyn Gonzalez",
@@ -11,7 +11,7 @@
     {
       "image": "https://i.ibb.co/5hr4Kq8/measuring-tape-png.png",
       "productname":"Measuring-tape",
-      "price": "$125.06",
+      "price": "125.06",
       "minimumorderquantity": 1000,
       "availablequantity": 4475,
       "suppliername": "Strickland Hess",
@@ -20,7 +20,7 @@
     {
       "image": "https://i.ibb.co/gwWnhS5/screwdriver-picture.png",
       "productname": "Screwdriver",
-      "price": "$88.44",
+      "price": "88.44",
       "minimumorderquantity": 800,
       "availablequantity": 3385,
       "suppliername": "Hernandez Garner",
@@ -29,7 +29,7 @@
     {
       "image": "https://i.ibb.co/5jtJLWr/drill-png.png",
       "productname": "Drill",
-      "price": "$189.75",
+      "price": "189.75",
       "minimumorderquantity": 900,
       "availablequantity": 4668,
       "suppliername": "Curtis Cross",
@@ -38,7 +38,7 @@
     {
       "image": "https://i.ibb.co/LdtpzgV/Step-ladders.png",
       "productname": "Step-ladders",
-      "price": "$159.08",
+      "price": "159.08",
       "minimumorderquantity": 1100,
       "availablequantity": 3846,
       "suppliername": "Brittney Bartlett",
@@ -47,7 +47,7 @@
     {
       "image": "https://i.ibb.co/kmKTy60/chainsaw-png.png",
       "productname": "Chainsaw",
-      "price": "$184.59",
+      "price": "184.59",
       "minimumorderquantity": 642,
       "availablequantity": 2208,
       "suppliername": "Monique Spence",

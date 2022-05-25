@@ -7,13 +7,14 @@ import auth from "../../firebase.init";
 import CheckoutForm from "./CheckoutForm ";
 
 const stripePromise = loadStripe(
-  "pk_test_51L3193EMgmTWmjRxZNGYLJJuYbnYvzqtC13pcNrykLTuHkk40fzXkwWYzZqqtomG5QuSUWqPjd2ePMZzi7DFPPz100JSC04cn3"
+  "pk_test_51L2xLoLwikmKhMF7wCpEyCtg8S2miG0peByqfL06pamCENRiepSQfxxhMRaaPClRFHkLwyGnQliWiBQMckM2tcZP00PuKFpA97"
 );
 
 const Payment = () => {
   const [user] = useAuthState(auth);
   const { payid } = useParams();
   const [order, setOrder] = useState([]);
+  console.log(order);
   useEffect(() => {
     fetch(`http://localhost:5000/payorder/${payid}`)
       .then((res) => res.json())

@@ -38,21 +38,22 @@ const Singleorder = ({ order, isloading, setIsloading, setDeletingorder }) => {
 
       <th>
         {/* !order.paid */}
+
         {order.price && !order.paid && (
           <Link to={`/dashboard/payment/${order._id}`}>
-            {" "}
-            <button class="btn btn-primary btn-xs  bg-slate-800 text-whitebtn-xs">
-              Pay
-            </button>
+            <button className="btn btn-xs btn-success">pay</button>
           </Link>
         )}
         {order.price && order.paid && (
-          <Link to={`/dashboard/payment/${order._id}`}>
-            {" "}
-            <button class="btn btn-primary btn-xs  bg-slate-800 text-whitebtn-xs">
-              Paid
-            </button>
-          </Link>
+          <div>
+            <p>
+              <span className="text-success">Paid</span>
+            </p>
+            <p>
+              Transaction id:{" "}
+              <span className="text-success">{order.transactionId}</span>
+            </p>
+          </div>
         )}
       </th>
       <th>

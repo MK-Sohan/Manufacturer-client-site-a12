@@ -3,25 +3,35 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 
 const CheckoutForm = ({ order }) => {
-  const [cardError, setCardError] = useState("");
-  const [success, setSuccess] = useState("");
   const stripe = useStripe();
   const elements = useElements();
+  const [cardError, setCardError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [transactionId, setTransactionId] = useState("");
+  const [processing, setProcessing] = useState(false);
+
   const [clientSecret, setClientSecret] = useState("");
   console.log(clientSecret);
-  const { price, email, name } = order;
+  const { _id, price, email, name } = order;
   console.log(price);
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ price }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data));
+    console.log(price);
+    if (price) {
+      fetch("http://localhost:5000/create-payment-intent", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ price }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data?.clientSecret) {
+            setClientSecret(data.clientSecret);
+          }
+        });
+    }
   }, [price]);
 
   // form submit here start=======================================================
@@ -46,6 +56,8 @@ const CheckoutForm = ({ order }) => {
 
     setCardError(error?.message || "");
     setSuccess("");
+    setProcessing(true);
+
     // set card error==================
 
     const { paymentIntent, error: intentError } =
@@ -60,12 +72,33 @@ const CheckoutForm = ({ order }) => {
       });
     if (intentError) {
       setCardError(intentError.message);
+      setProcessing(false);
     } else {
       setCardError("");
+      setTransactionId(paymentIntent.id);
+
       console.log(paymentIntent);
       setSuccess("Congrats! Your payment is completed.");
+      // update payment==================================================================
+      const payment = {
+        order: _id,
+        transactionId: paymentIntent.id,
+      };
+      fetch(`http://localhost:5000/paymentorder/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setProcessing(false);
+          console.log(data);
+        });
     }
-    console.log("pay complet");
+    console.log("pay complet", paymentIntent);
   };
   // form submit end=======================================================
 
@@ -91,13 +124,21 @@ const CheckoutForm = ({ order }) => {
         <button
           className="btn btn-success btn-xs mt-10"
           type="submit"
-          disabled={!stripe || clientSecret}
+          disabled={!stripe || !clientSecret || success}
         >
           Pay
         </button>
       </form>
       {cardError && <p className="text-red-500">{cardError}</p>}
-      {success && <p className="text-green-600-500">{success}</p>}
+      {success && (
+        <div className="text-green-500">
+          <p>{success} </p>
+          <p>
+            Your transaction Id:{" "}
+            <span className="text-orange-500 font-bold">{transactionId}</span>{" "}
+          </p>
+        </div>
+      )}
     </>
   );
 };
