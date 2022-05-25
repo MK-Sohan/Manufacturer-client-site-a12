@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loading from "../../Share/Loading";
@@ -33,9 +33,13 @@ const Signup = () => {
   };
   const [token] = useToken(user || gUser);
   const navigate = useNavigate();
-  if (token) {
-    navigate("/");
-  }
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
+
   let signInError;
 
   if (loading || gLoading || updating) {

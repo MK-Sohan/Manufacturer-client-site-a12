@@ -3,6 +3,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import image from "../../image/imgbin_computer-icons-user-profile-user-account-png.png";
+import { FiEdit } from "react-icons/fi";
+
 const MyProfile = () => {
   const [user] = useAuthState(auth);
   const [profile, setProfile] = useState([]);
@@ -23,7 +25,7 @@ const MyProfile = () => {
         <Link to="/dashboard/editmyprofile">
           {" "}
           <button class="btn btn-primary btn-xs  ml-1 bg-slate-800 text-whitebtn-xs">
-            Edit Profile
+            <FiEdit className="mr-2"></FiEdit> Edit Profile
           </button>
         </Link>
         <figure class="px-10 pt-10">

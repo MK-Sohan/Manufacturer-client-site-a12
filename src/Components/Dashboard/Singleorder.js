@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import useMyorder from "../Hookes/useMyorder";
 import Loading from "../Share/Loading";
-
+import { AiFillDelete } from "react-icons/ai";
+import { GiPayMoney } from "react-icons/gi";
 const Singleorder = ({ order, isloading, setIsloading, setDeletingorder }) => {
   // console.log(order);
   // const { paymentid } = useParams();
@@ -27,7 +28,7 @@ const Singleorder = ({ order, isloading, setIsloading, setDeletingorder }) => {
         <br />
       </td>
       <td>
-        {order.price}
+        $ {order.price}
         <br />
       </td>
       <td>{order.availablequantity} Piece </td>
@@ -41,7 +42,9 @@ const Singleorder = ({ order, isloading, setIsloading, setDeletingorder }) => {
 
         {order.price && !order.paid && (
           <Link to={`/dashboard/payment/${order._id}`}>
-            <button className="btn btn-xs btn-success">pay</button>
+            <button className="btn btn-xs btn-success">
+              <GiPayMoney className="mr-3"></GiPayMoney> pay
+            </button>
           </Link>
         )}
         {order.price && order.paid && (
@@ -62,7 +65,7 @@ const Singleorder = ({ order, isloading, setIsloading, setDeletingorder }) => {
           for="delete-confirm-modal"
           class="btn  btn-error text-slate-600 btn-xs"
         >
-          Delete
+          <AiFillDelete className="mr-3"></AiFillDelete> Delete
         </label>
       </th>
     </tr>

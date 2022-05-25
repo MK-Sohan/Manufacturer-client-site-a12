@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
 import useAdmin from "../../Hookes/useAdmin";
+import { BiPurchaseTag } from "react-icons/bi";
 
 const Singletool = ({ tool }) => {
   const { productid } = useParams();
@@ -24,13 +25,13 @@ const Singletool = ({ tool }) => {
   };
 
   return (
-    <div class="card w-96 bg-base-100 shadow-xl mb-10">
+    <div class="card w-96 bg-base-100 shadow-xl mb-10 hover:border-yellow-600 border-2">
       <figure>
         <img className="h-56 py-3" src={image} alt="Shoes" />
       </figure>
-      <div class="card-body">
+      <div class="card-body ">
         <h2 class="card-title">{productname}</h2>
-        <p className="font-bold ">{price} per unit</p>
+        <p className="font-bold ">$ {price} per unit</p>
         <p>
           <span className="font-bold"> Available:</span>
           <span> {availablequantity} piece</span>
@@ -45,9 +46,9 @@ const Singletool = ({ tool }) => {
           <button
             disabled={admin === true}
             onClick={() => handleCheckout(tool._id)}
-            class="btn btn-success text-white font-bold"
+            class="btn btn-success text-white  text-xl"
           >
-            Buy Now
+            <BiPurchaseTag className="mr-1"></BiPurchaseTag> Buy Now
           </button>
         </div>
       </div>

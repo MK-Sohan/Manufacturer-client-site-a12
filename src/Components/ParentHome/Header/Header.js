@@ -3,6 +3,12 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
+import { FaSignOutAlt } from "react-icons/fa";
+import { RiLoginBoxFill, RiDashboardFill } from "react-icons/ri";
+import { AiFillHome } from "react-icons/ai";
+import { ImBlog } from "react-icons/im";
+import { ImProfile } from "react-icons/im";
+
 import "./Header.css";
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -15,12 +21,17 @@ const Header = () => {
     <>
       <li>
         <Link className="font-semibold text-xl " to="/">
-          Home
+          <AiFillHome></AiFillHome> Home
         </Link>
       </li>
       <li>
         <Link className="font-semibold text-xl " to="/blog">
-          Blog
+          <ImBlog></ImBlog> Blog
+        </Link>
+      </li>
+      <li>
+        <Link className="font-semibold text-xl " to="/portfolio">
+          <ImProfile></ImProfile> My Portfolio
         </Link>
       </li>
 
@@ -28,19 +39,21 @@ const Header = () => {
         {user && (
           <>
             <Link className="font-semibold text-xl " to="/dashboard">
-              Dashboard
+              <RiDashboardFill></RiDashboardFill> Dashboard
             </Link>
           </>
         )}
       </li>
       <li>
         {user ? (
-          <button className="btn btn-ghost" onClick={logout}>
-            <p className="font-semibold text-xl text-red-600">Sign Out</p>
-          </button>
+          <>
+            <p onClick={logout} className="font-semibold text-xl text-red-600 ">
+              <FaSignOutAlt></FaSignOutAlt> Sign Out
+            </p>
+          </>
         ) : (
           <Link className="font-semibold text-xl" to="/login">
-            Login
+            <RiLoginBoxFill></RiLoginBoxFill> Login
           </Link>
         )}
       </li>

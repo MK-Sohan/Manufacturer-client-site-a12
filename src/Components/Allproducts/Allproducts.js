@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import useAdmin from "../Hookes/useAdmin";
 import useTootls from "../Hookes/useTootls";
+import { AiFillDelete } from "react-icons/ai";
 
 const Allproducts = () => {
   const [tools, setTools] = useTootls();
@@ -32,39 +33,13 @@ const Allproducts = () => {
 
   // stoke update start==============
 
-  // const stockUpdate = (event) => {
-  //   event.preventDefault();
-  //   const quantity = event.target.stock.value;
-  //   if (!quantity) {
-  //     alert("input field can't be empty");
-  //   } else {
-  //     const newQuantity = quantity
-  //     const newQuantityObj = { newQuantity };
-  //     const url = `http://localhost:5000/inventory/${}`;
-  //     fetch(url, {
-  //       method: "PUT",
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify(newQuantityObj),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log("success", data);
-
-  //         //    toast('item restock successfully')
-  //       });
-  //     event.target.reset();
-  //   }
-  // };
-
   // stoke update start==============
 
   return (
     <div className="">
       <h1 className="text-center text-4xl font-bold text-cyan-500 mb-8">
         {" "}
-        Our Products
+        Manage Products
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center max-w-7xl mx-auto px-12">
         {tools.map((tool) => (
@@ -74,7 +49,11 @@ const Allproducts = () => {
             </figure>
             <div class="card-body">
               <h2 class="card-title">{tool.productname}</h2>
-              <p className="font-bold ">{tool.price} per unit</p>
+              <p>
+                {" "}
+                <span className="font-bold ">Price :</span> $ {tool.price} per
+                unit
+              </p>
               <p>
                 <span className="font-bold"> Available:</span>
                 <span> {tool.availablequantity} piece</span>
@@ -84,7 +63,10 @@ const Allproducts = () => {
                 <span className="font-bold">Minimum Order Quantity: </span>{" "}
                 {tool.minimumorderquantity} piece
               </p>
-              <p>{tool.description}</p>
+              <p>
+                {" "}
+                <span className="font-bold">About:</span> {tool.description}
+              </p>
               <div class="card-actions justify-center mt-4">
                 <button
                   disabled={admin === true}
@@ -98,7 +80,7 @@ const Allproducts = () => {
                       onClick={() => HandleDeleteproduct(tool._id)}
                       class="btn btn-error text-white font-bold"
                     >
-                      Delete
+                      <AiFillDelete></AiFillDelete> Delete
                     </button>
                     {/* <Link to="/dashboard">My Orders</Link> */}
                   </>
