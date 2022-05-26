@@ -1,6 +1,6 @@
 import React from "react";
 
-const Deletingordermodal = ({ deletingOrder }) => {
+const Deletingordermodal = ({ deletingOrder, isloading, setIsloading }) => {
   console.log(deletingOrder);
   const { productname } = deletingOrder;
 
@@ -9,7 +9,9 @@ const Deletingordermodal = ({ deletingOrder }) => {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => {});
+      .then((data) => {
+        setIsloading(!isloading);
+      });
   };
   return (
     <div>
@@ -20,6 +22,13 @@ const Deletingordermodal = ({ deletingOrder }) => {
           <h3 class="font-bold text-lg">Do You Want to Delete {productname}</h3>
           <p class="py-4">After Deleting your order you cant get it back</p>
           <div class="modal-action">
+            <label
+              for="delete-confirm-modal"
+              onClick={() => handleDeleorder(deletingOrder._id)}
+              class="  btn btn-error text-slate-600 "
+            >
+              Delete
+            </label>
             <label for="delete-confirm-modal" class="btn">
               Cancel
             </label>

@@ -44,6 +44,8 @@ const Myorder = () => {
           </table>
           {deletingOrder && (
             <Deletingordermodal
+              isloading={isloading}
+              setIsloading={setIsloading}
               deletingOrder={deletingOrder}
             ></Deletingordermodal>
           )}
