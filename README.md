@@ -1,6 +1,6 @@
 Site name: SpaceDesk Mechanical
 
-Live Website Link: (https://github.com/facebook/create-react-app).
+Live Website Link: (https://assignment-12-c7c15.web.app/ ).
 
 <li>In the home page I add a banner , the tools what the manufacturar company made for,and about business success, then I add a employe form if anyone want to join our company they can contact us through this form , I also add a review section,I also add a blogs section in home page.There is a question form in the home page.</li>
 <li>then I add a blog section where I answer the 5 question</li>
