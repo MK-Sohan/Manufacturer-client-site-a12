@@ -22,16 +22,7 @@ const Manageorders = () => {
   if (isLoading) {
     <Loading></Loading>;
   }
-  // useEffect(() => {
-  //   fetch("https://cryptic-journey-76382.herokuapp.com/manageorder", {
-  //     method: "GET",
-  //     headers: {
-  //       authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setAllorders(data));
-  // }, []);
+
   console.log(allorders);
 
   const handleDeleteorder = (id) => {
@@ -41,12 +32,7 @@ const Manageorders = () => {
         method: "DELETE",
       })
         .then((res) => res.json())
-        .then((data) => {
-          // const remaining = allorders.filter((sorder) => sorder._id !== id);
-          // setAllorders(remaining);
-          refetch();
-          console.log(data);
-        });
+        .then((data) => refetch());
     }
   };
   const handleStatus = (id) => {
@@ -60,15 +46,12 @@ const Manageorders = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result.upsertedCount) {
-          refetch();
-          toast.success("Order Shipped");
-        }
+        refetch();
+        toast.success("Order Shipped");
       });
   };
 
   return (
-    // <div class="overflow-x-auto">
     <table class="table w-full">
       {/* <!-- head --> */}
       <thead>
@@ -140,7 +123,6 @@ const Manageorders = () => {
         ))}
       </tbody>
     </table>
-    // </div>
   );
 };
 
