@@ -26,12 +26,10 @@ const HandleAllproductdeleteModal = ({ deleteproduct, refetch }) => {
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <h3 class="font-bold text-lg">
-            Congratulations random Interner user! {deleteproduct.price}
+            Are you shure you want to delete{" "}
+            <span className="text-cyan-400">{deleteproduct.productname}</span>
           </h3>
-          <p class="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
+          <p class="py-4">After Deleting your product you cant get it back</p>
           <div class="modal-action">
             <label for="allproduct-delete-modal" class="btn">
               Cancel

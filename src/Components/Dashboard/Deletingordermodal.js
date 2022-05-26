@@ -19,7 +19,9 @@ const Deletingordermodal = ({ deletingOrder, isloading, setIsloading }) => {
       <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
-          <h3 class="font-bold text-lg">Do You Want to Delete {productname}</h3>
+          <h3 class="font-bold text-lg">
+            Do You Want to Delete {deletingOrder.productname}
+          </h3>
           <p class="py-4">After Deleting your order you cant get it back</p>
           <div class="modal-action">
             <label

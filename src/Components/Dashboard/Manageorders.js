@@ -3,10 +3,10 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../Share/Loading";
+import ManagedeleteModal from "./Managedeletemodal/ManagedeleteModal";
 
 const Manageorders = () => {
-  // const [allorders, setAllorders] = useState([]);
-  // const [isloading, setIsloading] = useState(false);
+  const [deletemanageorder, setDeletemanageorder] = useState(null);
   const {
     data: allorders,
     isLoading,
@@ -52,77 +52,94 @@ const Manageorders = () => {
   };
 
   return (
-    <table class="table w-full">
-      {/* <!-- head --> */}
-      <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Available Quantity</th>
-          <th>Customers Order</th>
-          <th>Available Quantity</th>
-          <th>Payment Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {/* <!-- row 1 --> */}
-
-        {allorders?.map((allorder, index) => (
+    <>
+      <table class="table w-full">
+        {/* <!-- head --> */}
+        <thead>
           <tr>
-            <td>{index + 1}</td>
-            <td>
-              <img
-                class="mask mask-squircle w-12 h-12"
-                src={allorder.image}
-                alt="Avatar Tailwind CSS Component"
-              />
-            </td>
-            <td>{allorder.productname}</td>
-            <td>{allorder.price}</td>
-            <td>{allorder.availablequantity}</td>
-            <td>{allorder.orderquantity}</td>
-            <td>
-              {allorder.price && !allorder.paid && (
-                <>
+            <th></th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Available Quantity</th>
+            <th>Customers Order</th>
+            <th>Available Quantity</th>
+            <th>Payment Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* <!-- row 1 --> */}
+
+          {allorders?.map((allorder, index) => (
+            <tr>
+              <td>{index + 1}</td>
+              <td>
+                <img
+                  class="mask mask-squircle w-12 h-12"
+                  src={allorder.image}
+                  alt="Avatar Tailwind CSS Component"
+                />
+              </td>
+              <td>{allorder.productname}</td>
+              <td>{allorder.price}</td>
+              <td>{allorder.availablequantity}</td>
+              <td>{allorder.orderquantity}</td>
+              <td>
+                {allorder.price && !allorder.paid && (
+                  <>
+                    <div>
+                      <p>
+                        <span className="text-red-600 text-success">
+                          Unpaid
+                        </span>
+                      </p>
+                    </div>
+
+                    {/* <button
+                      onClick={() => handleDeleteorder(allorder._id)}
+                      className=" "
+                    >
+                      Delet
+                    </button> */}
+                    <label
+                      onClick={() => setDeletemanageorder(allorder)}
+                      for="manageorder-delete-modal"
+                      class="ml-56 btn btn-error btn-xs"
+                    >
+                      Delete
+                    </label>
+                  </>
+                )}
+                {allorder.price && allorder.paid && (
                   <div>
                     <p>
-                      <span className="text-red-600 text-success">Unpaid</span>
+                      <span className="text-success">Already Paid</span>
                     </p>
                   </div>
-
+                )}
+              </td>
+              <td>
+                <p className="font-bold">{allorder?.status}</p>
+                {allorder?.status === "pending" && (
                   <button
-                    onClick={() => handleDeleteorder(allorder._id)}
-                    className=" ml-56 btn btn-error btn-xs"
+                    onClick={() => handleStatus(allorder?._id)}
+                    className="btn btn-sm capitalize font-normal text-white "
                   >
-                    Delet
+                    Shipped
                   </button>
-                </>
-              )}
-              {allorder.price && allorder.paid && (
-                <div>
-                  <p>
-                    <span className="text-success">Already Paid</span>
-                  </p>
-                </div>
-              )}
-            </td>
-            <td>
-              <p className="font-bold">{allorder?.status}</p>
-              {allorder?.status === "pending" && (
-                <button
-                  onClick={() => handleStatus(allorder?._id)}
-                  className="btn btn-sm capitalize font-normal text-white "
-                >
-                  Shipped
-                </button>
-              )}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {deletemanageorder && (
+        <ManagedeleteModal
+          refetch={refetch}
+          deletemanageorder={deletemanageorder}
+        ></ManagedeleteModal>
+      )}
+    </>
   );
 };
 
