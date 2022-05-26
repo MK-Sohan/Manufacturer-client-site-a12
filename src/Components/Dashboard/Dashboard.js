@@ -11,6 +11,7 @@ import { MdReviews } from "react-icons/md";
 
 import { BsFillBasketFill } from "react-icons/bs";
 import { BsFillCartCheckFill } from "react-icons/bs";
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -19,31 +20,31 @@ const Dashboard = () => {
   return (
     <div class="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col items-center ">
+      <div class="drawer-content flex flex-col items-center pagecontainer ">
         {/* <!-- Page content here --> */}
-        <h1 className="text-4xl text-center mb-16 mt-10 font-bold">
+        <h1 className="text-4xl text-center mb-16 mt-10 font-bold text-white">
           Welcome to Dashboard {user.displayName}
         </h1>
         <Outlet></Outlet>
       </div>
       <div class="drawer-side">
         <label for="my-drawer-2" class="drawer-overlay"></label>
-        <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+        <ul class="menu p-4 overflow-y-auto w-80 bg-slate-500 text-base-content">
           {/* <!-- Sidebar content here --> */}
           {!admin && (
             <>
               {" "}
-              <li>
+              <li className="text-white">
                 <Link to="/dashboard">
                   <BsFillCartCheckFill></BsFillCartCheckFill> My Orders
                 </Link>
               </li>
-              <li>
+              <li className="text-white">
                 <Link to="/dashboard/addreview">
                   <MdReviews></MdReviews> Add A Review
                 </Link>
               </li>
-              <li>
+              <li className="text-white">
                 <Link to="/dashboard/myprofile">
                   {" "}
                   <FaAddressBook></FaAddressBook>My Profile
@@ -54,28 +55,28 @@ const Dashboard = () => {
 
           {admin && (
             <>
-              <li>
+              <li className="text-white">
                 <Link to="/dashboard/myprofile">
                   <FaAddressBook></FaAddressBook> My Profile
                 </Link>
               </li>
-              <li>
+              <li className="text-white">
                 <Link to="/dashboard/users">
                   <HiUsers></HiUsers> All Users
                 </Link>
               </li>
-              <li>
+              <li className="text-white">
                 <Link to="/dashboard/addproduct">
                   {" "}
                   <AiFillFileAdd></AiFillFileAdd> Add Product
                 </Link>
               </li>
-              <li>
+              <li className="text-white">
                 <Link to="/dashboard/allproduct">
                   <MdManageSearch></MdManageSearch> Manage Products
                 </Link>
               </li>
-              <li>
+              <li className="text-white">
                 <Link to="/dashboard/manageorder">
                   <BsFillBasketFill></BsFillBasketFill> Manage Orders
                 </Link>

@@ -29,16 +29,16 @@ const Myportfolio = () => {
                 My 3 personal project live link : <br />
                 <a
                   className="text-blue-400"
-                  href="https://todolist-task-88106.firebaseapp.com/login"
+                  href="https://grocery-project-8bb06.firebaseapp.com/"
                 >
-                  Link 1
+                  Groco
                 </a>{" "}
                 <br />
                 <a
                   className="text-blue-400 mt-14"
-                  href="https://todolist-task-88106.firebaseapp.com/login"
+                  href="https://assignment-11-ee9c8.web.app/"
                 >
-                  Link 1
+                  Fruittastic
                 </a>{" "}
                 <br />
                 <a

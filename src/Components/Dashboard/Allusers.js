@@ -29,6 +29,8 @@ const Allusers = () => {
           <tr>
             <th></th>
             <th>email</th>
+            <th>Make Admin</th>
+            <th>Remove user</th>
           </tr>
         </thead>
         <tbody>

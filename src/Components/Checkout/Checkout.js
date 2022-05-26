@@ -76,8 +76,8 @@ const Checkout = () => {
     // console.log(quantity);
   };
   return (
-    <div className="checkout-container">
-      <div class="card w-6/12 bg-base-100 shadow-xl lg:mb-52  mx-auto  ">
+    <div className="checkout-container2 h-screen py-8">
+      <div class="card w-6/12 bg-base-100 shadow-xl lg:mb-52   mx-auto  ">
         <figure>
           <img className="h-60 py-3" src={checkout.image} alt="Tools" />
         </figure>

@@ -20,15 +20,18 @@ const Allproducts = () => {
 
   const HandleDeleteproduct = (id) => {
     const url = `http://localhost:5000/tool/${id}`;
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        const remaining = tools.filter((tool) => tool._id !== id);
-        setTools(remaining);
-      });
+    const proceed = window.confirm("Are you shure?");
+    if (proceed) {
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const remaining = tools.filter((tool) => tool._id !== id);
+          setTools(remaining);
+        });
+    }
   };
 
   // stoke update start==============
