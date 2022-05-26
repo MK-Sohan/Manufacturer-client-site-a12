@@ -8,7 +8,7 @@ const Clients = () => {
   return (
     <div className="clients">
       <div className="container mx-auto ">
-        <div className=" sm:flex flex-col items-center gap-6  row flex justify-between ">
+        <div className="  row flex justify-between  ">
           <div class="card w-96 bg-base-100 shadow-xl image-full mr-7">
             <figure>
               <img src={icon1} alt="Shoes" />
