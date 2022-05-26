@@ -9,7 +9,7 @@ const Clients = () => {
     <div className="clients">
       <div className="container mx-auto ">
         <div className="  row flex justify-between  ">
-          <div class="card w-96 bg-base-100 shadow-xl image-full mr-7">
+          <div class="card singlecard w-96 bg-base-100 shadow-xl image-full mr-7">
             <figure>
               <img src={icon1} alt="Shoes" />
             </figure>
@@ -22,7 +22,7 @@ const Clients = () => {
               </p>
             </div>
           </div>
-          <div class="card w-96 bg-base-100 shadow-xl mr-7 image-full">
+          <div class="card singlecard w-96 bg-base-100 shadow-xl mr-7 image-full">
             <figure>
               <img src={icon2} alt="Shoes" />
             </figure>
@@ -34,7 +34,7 @@ const Clients = () => {
               <div class="card-actions justify-end"></div>
             </div>
           </div>
-          <div class="card w-96 bg-base-100 shadow-xl mr-7 image-full">
+          <div class="card singlecard w-96 bg-base-100 shadow-xl mr-7 image-full">
             <figure>
               <img src={icon3} alt="Shoes" />
             </figure>
@@ -48,7 +48,7 @@ const Clients = () => {
               <div class="card-actions justify-end"></div>
             </div>
           </div>
-          <div class="card w-96 bg-base-100 shadow-xl mr-7 image-full">
+          <div class="card singlecard w-96 bg-base-100 shadow-xl mr-7 image-full">
             <figure>
               <img src={icon4} alt="Shoes" />
             </figure>

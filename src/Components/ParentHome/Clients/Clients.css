@@ -26,6 +26,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    margin: 0 auto;
+  }
+  .clients {
+    background: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    background-attachment: fixed;
+  }
+  .singlecard {
+    width: 70%;
+    margin: 30px auto;
   }
 }

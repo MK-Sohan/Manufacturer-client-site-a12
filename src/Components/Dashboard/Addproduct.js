@@ -46,10 +46,8 @@ const Addproduct = () => {
               console.log(res);
             })
             .then((newdata) => {
-              if (newdata) {
-                toast("Item Added");
-                reset();
-              }
+              toast("Item Added");
+              reset();
 
               console.log(newdata);
             });
