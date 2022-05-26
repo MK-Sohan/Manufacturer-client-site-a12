@@ -1,8 +1,8 @@
 import React from "react";
-
+import image from "../.././image/Capture.PNG";
 const Blog = () => {
   return (
-    <div className=" ml-5 mt-16 w-3/4">
+    <div className=" mx-auto mb-20 mt-16 w-3/4">
       <h1 className="text-3xl">
         Q1: How will we improve the performance of a React Application?
       </h1>
@@ -27,7 +27,7 @@ const Blog = () => {
         <li>URL state.</li>
       </p>
       <h1 className="text-3xl mt-5">
-        Q1: How does prototypical inheritance work?
+        Q3: How does prototypical inheritance work?
       </h1>
       <p className="text-xl mt-5">
         Ans:The Prototypal Inheritance is a feature in javascript used to add
@@ -37,7 +37,7 @@ const Blog = () => {
         use Object. getPrototypeOf and Object.
       </p>
       <h1 className="text-3xl mt-5">
-        Q1: What is a unit test? Why should write unit tests?
+        Q4: What is a unit test? Why should write unit tests?
       </h1>
       <p className="text-xl mt-5">
         Ans: Unit testing:UNIT TESTING is a type of software testing where
@@ -47,13 +47,24 @@ const Blog = () => {
         and can also help to create a good design.
       </p>
       <h1 className="text-3xl mt-5">
-        Q1: You have an array of products. Each product has a name, price,
+        Q5: You have an array of products. Each product has a name, price,
         description, etc. How will you implement a search to find products by
         name?
       </h1>
+      <img src={image} alt="" />
       <p className="text-xl mt-5">
-        Ans: const array=[name:'chips',price:20,description:'something']
-        array.includes(name)
+        Ans: First time declear a array of object where will be product
+        name,price product description. Declear a findProducts function which
+        function find product and retun the value. This function give a
+        parameter which name productName.l also parameter name store another
+        variable and convert case sensitive. We know that filter is one of array
+        method.Now we are easily implement filter method.filter method loop all
+        array elemet filter method first parameter take every elemet and every
+        element includes name property.parameter name and property name do the
+        match should both name case sensitive.when filter method loop startd
+        every time check inside product proter name would include parameter
+        name.when the match both name then filter method return true and also
+        array of object return.
       </p>
     </div>
   );
