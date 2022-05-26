@@ -8,6 +8,7 @@ const Singleorder = ({ order, isloading, setIsloading, setDeletingorder }) => {
   // console.log(order);
   // const { paymentid } = useParams();
   const [myOrders, setMyorder] = useMyorder();
+  const { paid } = order;
 
   return (
     <tr>
@@ -60,13 +61,15 @@ const Singleorder = ({ order, isloading, setIsloading, setDeletingorder }) => {
         )}
       </th>
       <th>
-        <label
-          onClick={() => setDeletingorder(order)}
-          for="delete-confirm-modal"
-          class="btn  btn-error text-slate-600 btn-xs"
-        >
-          <AiFillDelete className="mr-3"></AiFillDelete> Delete
-        </label>
+        {!paid && (
+          <label
+            onClick={() => setDeletingorder(order)}
+            for="delete-confirm-modal"
+            class="btn  btn-error text-slate-600 btn-xs"
+          >
+            <AiFillDelete className="mr-3"></AiFillDelete> Delete
+          </label>
+        )}
       </th>
     </tr>
   );

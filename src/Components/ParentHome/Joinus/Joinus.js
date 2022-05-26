@@ -40,7 +40,7 @@ const Joinus = () => {
               class="input input-bordered w-full max-w-xs ml-5 "
             />{" "}
             <br />
-            <button class="btn btn-success ml-5 mt-5">Get Started</button>
+            <button class="btn btn-success ml-5 mt-5">Send</button>
           </div>
         </div>
       </div>

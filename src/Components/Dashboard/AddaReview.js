@@ -11,7 +11,7 @@ const AddaReview = () => {
       rating: rating,
       review: review,
     };
-    fetch("http://localhost:5000/review", {
+    fetch("https://cryptic-journey-76382.herokuapp.com/review", {
       method: "POST",
       body: JSON.stringify(reviewinfo),
       headers: {

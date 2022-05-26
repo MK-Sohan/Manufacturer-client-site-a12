@@ -12,7 +12,7 @@ const Manageorders = () => {
     isLoading,
     refetch,
   } = useQuery("allorder", () =>
-    fetch("http://localhost:5000/manageorder", {
+    fetch("https://cryptic-journey-76382.herokuapp.com/manageorder", {
       method: "GET",
       headers: {
         authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
@@ -23,7 +23,7 @@ const Manageorders = () => {
     <Loading></Loading>;
   }
   // useEffect(() => {
-  //   fetch("http://localhost:5000/manageorder", {
+  //   fetch("https://cryptic-journey-76382.herokuapp.com/manageorder", {
   //     method: "GET",
   //     headers: {
   //       authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
@@ -37,7 +37,7 @@ const Manageorders = () => {
   const handleDeleteorder = (id) => {
     const proceed = window.confirm("are you shure?");
     if (proceed) {
-      fetch(`http://localhost:5000/admindelete/${id}`, {
+      fetch(`https://cryptic-journey-76382.herokuapp.com/admindelete/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -50,7 +50,7 @@ const Manageorders = () => {
     }
   };
   const handleStatus = (id) => {
-    const url = `http://localhost:5000/manageOrder/${id}`;
+    const url = `https://cryptic-journey-76382.herokuapp.com/manageOrder/${id}`;
     fetch(url, {
       method: "PATCH",
       headers: {

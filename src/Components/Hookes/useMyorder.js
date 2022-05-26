@@ -10,12 +10,15 @@ const useMyorder = () => {
 
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:5000/myorder/${user?.email}`, {
-      method: "GET",
-      headers: {
-        authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://cryptic-journey-76382.herokuapp.com/myorder/${user?.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           navigate("/");

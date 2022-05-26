@@ -33,7 +33,7 @@ const Addproduct = () => {
             image: image,
           };
           console.log(newproduct);
-          fetch("http://localhost:5000/tool", {
+          fetch("https://cryptic-journey-76382.herokuapp.com/tool", {
             method: "POST",
             body: JSON.stringify(newproduct),
             headers: {
@@ -46,7 +46,7 @@ const Addproduct = () => {
               console.log(res);
             })
             .then((newdata) => {
-              if (newdata.insertedId) {
+              if (newdata) {
                 toast("Item Added");
                 reset();
               }
@@ -54,7 +54,6 @@ const Addproduct = () => {
               console.log(newdata);
             });
         }
-        // console.log("image bb", data);
       });
     // console.log(data);
   };

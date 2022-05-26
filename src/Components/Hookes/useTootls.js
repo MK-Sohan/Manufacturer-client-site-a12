@@ -4,7 +4,7 @@ const useTootls = () => {
   const [tools, setTools] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/tool", {
+    fetch("https://cryptic-journey-76382.herokuapp.com/tool", {
       method: "GET",
       headers: {
         authorization: ` Bearer ${localStorage.getItem("accessToken")}`,

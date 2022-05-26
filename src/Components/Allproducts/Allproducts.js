@@ -19,7 +19,7 @@ const Allproducts = () => {
   };
 
   const HandleDeleteproduct = (id) => {
-    const url = `http://localhost:5000/tool/${id}`;
+    const url = `https://cryptic-journey-76382.herokuapp.com/tool/${id}`;
     const proceed = window.confirm("Are you shure?");
     if (proceed) {
       fetch(url, {

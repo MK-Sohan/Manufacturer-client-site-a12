@@ -5,7 +5,7 @@ const Deletingordermodal = ({ deletingOrder }) => {
   const { productname } = deletingOrder;
 
   const handleDeleorder = (id) => {
-    fetch(`http://localhost:5000/myorder/${id}`, {
+    fetch(`https://cryptic-journey-76382.herokuapp.com/myorder/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -20,13 +20,6 @@ const Deletingordermodal = ({ deletingOrder }) => {
           <h3 class="font-bold text-lg">Do You Want to Delete {productname}</h3>
           <p class="py-4">After Deleting your order you cant get it back</p>
           <div class="modal-action">
-            <label
-              for="delete-confirm-modal"
-              onClick={() => handleDeleorder(deletingOrder._id)}
-              class="  btn btn-error text-slate-600 "
-            >
-              Delete
-            </label>
             <label for="delete-confirm-modal" class="btn">
               Cancel
             </label>

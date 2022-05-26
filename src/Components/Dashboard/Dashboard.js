@@ -19,8 +19,8 @@ const Dashboard = () => {
   // console.log(admin);
   return (
     <div class="drawer drawer-mobile">
-      <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col items-center pagecontainer ">
+      <input id="my-drawer-2" type="checkbox" class="drawer-toggle " />
+      <div class="  drawer-content flex flex-col items-center pagecontainer  ">
         {/* <!-- Page content here --> */}
         <h1 className="text-4xl text-center mb-16 mt-10 font-bold text-white">
           Welcome to Dashboard {user.displayName}

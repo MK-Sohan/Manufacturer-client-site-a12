@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import "./Checkout.css";
+import Usermodal from "./Usermodal";
 
 const Checkout = () => {
   const { productid } = useParams();
@@ -15,7 +16,7 @@ const Checkout = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    const url = `http://localhost:5000/tool/${productid}`;
+    const url = `https://cryptic-journey-76382.herokuapp.com/tool/${productid}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCheckout(data));
@@ -37,7 +38,7 @@ const Checkout = () => {
       name: user?.displayName,
     };
 
-    fetch("http://localhost:5000/order", {
+    fetch("https://cryptic-journey-76382.herokuapp.com/order", {
       method: "POST",
       body: JSON.stringify(info),
       headers: {
@@ -78,6 +79,9 @@ const Checkout = () => {
   return (
     <div className="checkout-container2 h-screen py-8">
       <div class="card w-6/12 bg-base-100 shadow-xl lg:mb-52   mx-auto  ">
+        <label for="usermodal" class="btn btn btn-xs w-20 mt-3 ml-3">
+          Use info
+        </label>
         <figure>
           <img className="h-60 py-3" src={checkout.image} alt="Tools" />
         </figure>
@@ -152,6 +156,7 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+      {user && <Usermodal user={user}></Usermodal>}
     </div>
   );
 };

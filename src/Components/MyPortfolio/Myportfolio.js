@@ -21,8 +21,10 @@ const Myportfolio = () => {
               <span className="font-bold">Skills :</span> I was compleated a
               graphic designing course before this webdevloaping course.After
               compleating this web devlopment main course I am having a very
-              good knowledge html, css, java script, React frame work,
-              bootstrap, tailwind, and tailwind different kind of library etc.
+              good knowledge about html, css, java script, React frame work,
+              bootstrap, tailwind, and tailwind different kind of library etc. I
+              lern back end also.Now I also have a good back end khowledge. Now
+              I can make a full stack website.
             </p>
             <p class="py-6 text-2xl">
               <span className="font-bold">
@@ -43,9 +45,9 @@ const Myportfolio = () => {
                 <br />
                 <a
                   className="text-blue-400"
-                  href="https://todolist-task-88106.firebaseapp.com/login"
+                  href="https://assignment-10-b5a0b.web.app/"
                 >
-                  Link 1
+                  HELTH MENTOR
                 </a>
               </span>{" "}
             </p>

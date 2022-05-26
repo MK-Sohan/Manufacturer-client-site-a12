@@ -9,7 +9,7 @@ const MyProfile = () => {
   const [user] = useAuthState(auth);
   const [profile, setProfile] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/updatedprofile/${user.email}`;
+    const url = `https://cryptic-journey-76382.herokuapp.com/updatedprofile/${user.email}`;
     fetch(url, {
       method: "GET",
       headers: {

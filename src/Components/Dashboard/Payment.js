@@ -16,7 +16,7 @@ const Payment = () => {
   const [order, setOrder] = useState([]);
   console.log(order);
   useEffect(() => {
-    fetch(`http://localhost:5000/payorder/${payid}`)
+    fetch(`https://cryptic-journey-76382.herokuapp.com/payorder/${payid}`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [payid]);

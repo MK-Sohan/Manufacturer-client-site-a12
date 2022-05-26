@@ -17,14 +17,17 @@ const CheckoutForm = ({ order }) => {
   useEffect(() => {
     console.log(price);
     if (price) {
-      fetch("http://localhost:5000/create-payment-intent", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify({ price }),
-      })
+      fetch(
+        "https://cryptic-journey-76382.herokuapp.com/create-payment-intent",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify({ price }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data?.clientSecret) {
@@ -84,7 +87,7 @@ const CheckoutForm = ({ order }) => {
         order: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`http://localhost:5000/paymentorder/${_id}`, {
+      fetch(`https://cryptic-journey-76382.herokuapp.com/paymentorder/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

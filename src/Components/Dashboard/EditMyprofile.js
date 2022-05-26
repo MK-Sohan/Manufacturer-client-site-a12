@@ -22,7 +22,7 @@ const EditMyprofile = () => {
       phone: data.phone,
       link: data.link,
     };
-    fetch(`http://localhost:5000/profile/${user.email}`, {
+    fetch(`https://cryptic-journey-76382.herokuapp.com/profile/${user.email}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
