@@ -2,7 +2,11 @@ import React from "react";
 import "./Jurnals.css";
 const Jurnals = () => {
   return (
-    <div>
+    <div
+      data-aos="zoom-in-up"
+      data-aos-easing="linear"
+      data-aos-duration="2000"
+    >
       <section class="latest-news">
         <div class="">
           <h1 class="section-heading text-4xl font-bold text-center mt-10 mb-10">

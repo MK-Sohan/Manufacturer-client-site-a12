@@ -20,7 +20,7 @@ const MyProfile = () => {
       .then((data) => setProfile(data));
   }, []);
   return (
-    <div>
+    <div data-aos="flip-right" data-aos-easing="linear" data-aos-duration="900">
       <div class="card w-96 bg-base-100 shadow-xl">
         <Link to="/dashboard/editmyprofile">
           {" "}

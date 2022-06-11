@@ -6,8 +6,8 @@ import auth from "../../../firebase.init";
 import { FaSignOutAlt } from "react-icons/fa";
 import { RiLoginBoxFill, RiDashboardFill } from "react-icons/ri";
 import { AiFillHome } from "react-icons/ai";
-import { ImBlog } from "react-icons/im";
-import { ImProfile } from "react-icons/im";
+// import { ImBlog } from "react-icons/im";
+// import { ImProfile } from "react-icons/im";
 
 import "./Header.css";
 const Header = () => {
@@ -24,16 +24,16 @@ const Header = () => {
           <AiFillHome></AiFillHome> Home
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link className="font-semibold text-xl text-white" to="/blog">
           <ImBlog></ImBlog> Blog
         </Link>
-      </li>
-      <li>
+      </li> */}
+      {/* <li>
         <Link className="font-semibold text-xl text-white" to="/portfolio">
           <ImProfile></ImProfile> My Portfolio
         </Link>
-      </li>
+      </li> */}
 
       <li>
         {user && (
@@ -84,14 +84,25 @@ const Header = () => {
             tabindex="0"
             class="menu menu-compact  dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            {menu}
+            <div data-aos="zoom-in">{menu}</div>
           </ul>
         </div>
-        <Link as={Link} to="/" class=" text-xl">
-          <span className="logo"> SpaceDesk Mechanical</span>
-        </Link>
+        <div
+          data-aos="fade-right"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+        >
+          <Link as={Link} to="/" class=" text-xl">
+            <span className="logo"> SpaceDesk Mechanical</span>
+          </Link>
+        </div>
       </div>
-      <div class="navbar-center hidden lg:flex">
+      <div
+        data-aos="zoom-in"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+        class="navbar-center hidden lg:flex"
+      >
         <ul class="menu menu-horizontal p-0">{menu}</ul>
       </div>
       <div class="navbar-end">
@@ -111,7 +122,6 @@ const Header = () => {
             />
           </svg>
         </label>
-        {/* <h1 className="font-bold text-xl mr-14">User: {user?.displayName}</h1> */}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 
 const Joinus = () => {
   return (
-    <div>
+    <div data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500">
       <div class="hero min-h-screen bg-base-200">
         <div class="hero-content flex-col lg:flex-row">
           <img

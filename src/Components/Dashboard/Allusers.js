@@ -22,7 +22,12 @@ const Allusers = () => {
   }
   //   console.log(users);
   return (
-    <div class="overflow-x-auto w-full">
+    <div
+      data-aos="zoom-in"
+      data-aos-easing="linear"
+      data-aos-duration="900"
+      class="overflow-x-auto w-full"
+    >
       <table class="table w-full">
         {/* <!-- head --> */}
         <thead>

@@ -25,7 +25,12 @@ const Singletool = ({ tool }) => {
   };
 
   return (
-    <div class="card w-96 bg-base-100 shadow-xl mb-10 hover:border-slate-400 border-2">
+    <div
+      data-aos="flip-left"
+      data-aos-easing="linear"
+      data-aos-duration="1000"
+      class="card w-96 bg-base-100 shadow-xl mb-10 hover:border-slate-400 border-2"
+    >
       <figure>
         <img className="h-56 py-3" src={image} alt="Shoes" />
       </figure>

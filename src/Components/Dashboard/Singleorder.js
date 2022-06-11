@@ -11,7 +11,7 @@ const Singleorder = ({ order, isloading, setIsloading, setDeletingorder }) => {
   const { paid } = order;
 
   return (
-    <tr>
+    <tr data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="800">
       <td>
         <div class="flex items-center space-x-3">
           <div class="avatar">

@@ -3,12 +3,17 @@ import "./Clients.css";
 import icon1 from "../../../image/about services/delivery.jpg";
 import icon2 from "../../../image/about services/secure.png";
 import icon3 from "../../../image/about services/support.png";
-import icon4 from "../../../image/imgbin_computer-icons-user-profile-user-account-png.png";
+import icon4 from "../../../image/110-1102927_profile-icon-png.png";
 const Clients = () => {
   return (
     <div className="clients">
       <div className="container mx-auto ">
-        <div className="  row flex justify-between  ">
+        <div
+          data-aos="zoom-in"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1500"
+          className="  row flex justify-between  "
+        >
           <div class="card singlecard w-96 bg-base-100 shadow-xl image-full mr-7">
             <figure>
               <img src={icon1} alt="Shoes" />
