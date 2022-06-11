@@ -69,7 +69,9 @@ const Jurnals = () => {
             </article>
           </div>
           <div class="text-center btn-wrapper">
-            <button class="btnn2 btn-secondary2">View All</button>
+            <button class="btnn2  text-white hover:bg-slate-300 hover:text-black bg-slate-500">
+              View All
+            </button>
           </div>
         </div>
       </section>

@@ -23,10 +23,13 @@ import FourOfour from "./Components/Share/404/FourOfour";
 import Blog from "./Components/Blogs/Blog";
 import Manageorders from "./Components/Dashboard/Manageorders";
 import Myportfolio from "./Components/MyPortfolio/Myportfolio";
+import ScrollToTop from "./Components/ScrollToTop";
+import BackTopBtn from "./Components/BackTopBtn";
 
 function App() {
   return (
-    <div className="bg-slate-100">
+    <div className="bg-[#242933] overflow-hidden">
+      <ScrollToTop></ScrollToTop>
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -100,6 +103,7 @@ function App() {
         <Route path="*" element={<FourOfour></FourOfour>}></Route>
       </Routes>
       <Footer></Footer>
+      <BackTopBtn></BackTopBtn>
       <ToastContainer />
     </div>
   );

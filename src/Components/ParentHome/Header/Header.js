@@ -20,17 +20,17 @@ const Header = () => {
   const menu = (
     <>
       <li>
-        <Link className="font-semibold text-xl " to="/">
+        <Link className="font-semibold text-xl text-white" to="/">
           <AiFillHome></AiFillHome> Home
         </Link>
       </li>
       <li>
-        <Link className="font-semibold text-xl " to="/blog">
+        <Link className="font-semibold text-xl text-white" to="/blog">
           <ImBlog></ImBlog> Blog
         </Link>
       </li>
       <li>
-        <Link className="font-semibold text-xl " to="/portfolio">
+        <Link className="font-semibold text-xl text-white" to="/portfolio">
           <ImProfile></ImProfile> My Portfolio
         </Link>
       </li>
@@ -38,7 +38,7 @@ const Header = () => {
       <li>
         {user && (
           <>
-            <Link className="font-semibold text-xl " to="/dashboard">
+            <Link className="font-semibold text-xl text-white" to="/dashboard">
               <RiDashboardFill></RiDashboardFill> Dashboard
             </Link>
           </>
@@ -52,7 +52,7 @@ const Header = () => {
             </p>
           </>
         ) : (
-          <Link className="font-semibold text-xl" to="/login">
+          <Link className="font-semibold text-xl text-success" to="/login">
             <RiLoginBoxFill></RiLoginBoxFill> Login
           </Link>
         )}

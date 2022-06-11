@@ -10,7 +10,7 @@ import Tools from "../Tools/Tools";
 
 const Home = () => {
   return (
-    <div className="bg-slate-100">
+    <div className="">
       <Banner></Banner>
       <Tools></Tools>
       <Clients></Clients>

@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from "react";
 import SingleReview from "../SingleReview/SingleReview";
+import TestiSlider from "./TestiSlider";
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
-  useEffect(() => {
-    fetch("https://cryptic-journey-76382.herokuapp.com/review")
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, []);
+  // const [reviews, setReviews] = useState([]);
+  // useEffect(() => {
+  //   fetch("https://cryptic-journey-76382.herokuapp.com/review")
+  //     .then((res) => res.json())
+  //     .then((data) => setReviews(data));
+  // }, []);
   return (
-    <div className=" mt-12">
-      <h1 className="text-center text-4xl font-bold text-cyan-500 ">
-        What people say about us
-      </h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 justify-items-center w-10/12 mx-auto px-12 mt-8 mb-9">
-        {reviews.map((review) => (
-          <SingleReview key={review._id} review={review}></SingleReview>
-        ))}
+    <section id="testimonials" className="section  bg-primary">
+      <div className="container mx-auto">
+        <div
+          data-aos="zoom-out-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1000"
+          className="flex flex-col items-center text-center"
+        >
+          <h2 className="section-title before:content-testimonials relative before:absolute before:opacity-40 before:-top-[2rem] before:-left-64 before:hidden before:lg:block text-slate-500">
+            What other people say
+          </h2>
+          <p className="subtitle">
+            Here Some of My Satisfied Clients Testimonials Giving Below.
+          </p>
+        </div>
       </div>
-    </div>
+      <TestiSlider></TestiSlider>
+    </section>
   );
 };
 

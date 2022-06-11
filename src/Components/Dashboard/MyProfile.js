@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
-import image from "../../image/imgbin_computer-icons-user-profile-user-account-png.png";
+import image from "../../image/110-1102927_profile-icon-png.png";
 import { FiEdit } from "react-icons/fi";
 
 const MyProfile = () => {
@@ -29,7 +29,7 @@ const MyProfile = () => {
           </button>
         </Link>
         <figure class="px-10 pt-10">
-          <img src={image} alt="Shoes" class="rounded-sm h-28" />
+          <img src={image} alt="Shoes" class="rounded-sm h-28 " />
         </figure>
         <div class="card-body  ">
           <h2 class="card-title">NAME: {user?.displayName}</h2>

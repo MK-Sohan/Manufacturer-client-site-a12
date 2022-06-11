@@ -6,10 +6,14 @@ const Banner = () => {
     <div className=" main">
       <video src={video} autoPlay loop muted></video>
       <div className="content">
-        <p>START YOUR JURNEY WITH </p>
-        <h1>SpaceDesk Mechanical</h1>
-
-        <button className="btn bg-orange-600 ml-9 mt-4">About Us</button>
+        <p>START YOUR JURNEY WITH </p> <br />
+        <span className="">
+          <h1 className="   ">SpaceDesk Mechanical</h1>
+        </span>{" "}
+        <br />
+        <button className=" ml-12 mt-4 btn btn-success text-white lg:ml-12 lg:mt-10 ">
+          About Us
+        </button>
       </div>
     </div>
   );

@@ -19,6 +19,7 @@ video {
   color: orange;
   font-size: 70px;
   margin-left: 40px;
+  margin-top: 30px;
   font-family: "Oleo Script Swash Caps", cursive;
   color: orange;
 }
@@ -27,4 +28,14 @@ video {
   font-size: 30px;
   margin-left: 40px;
   font-family: "Source Code Pro", monospace;
+}
+
+@media only screen and (max-width: 644px) {
+  .content h1 {
+    color: orange;
+    font-size: 40px;
+    margin-left: 40px;
+    font-family: "Oleo Script Swash Caps", cursive;
+    color: orange;
+  }
 }
